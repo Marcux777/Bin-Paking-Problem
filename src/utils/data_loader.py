@@ -1,3 +1,6 @@
+from config import INSTANCES_DIR
+import os
+
 def create_data(arquivo):
     """
     Processa um arquivo de instância e extrai os dados necessários.
@@ -8,7 +11,7 @@ def create_data(arquivo):
     Returns:
         dict: Dicionário contendo os dados processados
     """
-    caminho = f"/workspaces/Bin-Paking-Problem/Instances/{arquivo}"
+    caminho = os.path.join(INSTANCES_DIR, arquivo)
     with open(caminho, "r") as file:
         # Filtrar apenas as linhas não vazias que iniciam com dígitos ou sinal negativo
         linhas = [linha.strip() for linha in file.readlines() if linha.strip() and (linha.strip()[0].isdigit() or linha.strip()[0] == '-')]

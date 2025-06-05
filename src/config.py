@@ -17,7 +17,7 @@ DEFAULT_INSTANCES = [
     "Scholl/Scholl_3/HARD5.txt",
 ]
 
-INSTANCES_DIR = "/workspaces/Bin-Paking-Problem/Instances"
+INSTANCES_DIR = "/workspaces/Bin-Paking-Problem/instances"
 
 # Configurações para o algoritmo GGA (Grouping Genetic Algorithm)
 GGA_CONFIG = {
@@ -35,12 +35,4 @@ TABU_CONFIG = {
     'max_iterations': 1000,     # Número máximo de iterações
     'max_iterations_no_improve': 100,  # Número máximo de iterações sem melhoria
     'neighborhood_size': 20,    # Tamanho da vizinhança a explorar em cada iteração
-}
-
-# Configurações de visualização
-VISUALIZATION_CONFIG = {
-    'show_plots': True,          # Mostrar gráficos de resultados
-    'save_plots': True,          # Salvar gráficos em arquivos
-    'plots_directory': '/workspaces/Bin-Paking-Problem/resultados',  # Diretório para salvar gráficos
-    'plot_format': 'png',        # Formato dos gráficos (png, pdf, svg, etc.)
 }

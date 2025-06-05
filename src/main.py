@@ -21,12 +21,11 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from models.container import Container
-from algorithms.gga import GGA
+from algorithms.grouping_genetic_algorithm import GGA
 from algorithms.tabu_search import Tabu_Search
-from utils.data_processor import create_data
+from utils.data_loader import create_data
 from utils.file_utils import list_directory_files, get_valid_files
 import argparse
-from result_display import display_solution
 from config import DEFAULT_INSTANCES, INSTANCES_DIR
 
 def process_instance(arquivo):
@@ -59,6 +58,17 @@ def process_instance(arquivo):
 
     execute_time = time.time() - start_time
     return arquivo, best_solution, execute_time, gga
+
+def exibir_resultado_textual(arquivo, solution, execution_time):
+    print(f"\nMelhor solução encontrada para {arquivo}:")
+    print("=" * 100)
+    for i, container in enumerate(solution, 1):
+        print(f"Contêiner {i}: {container}")
+    print("=" * 100)
+    print("Quantidade de contêineres usados: ", len(solution))
+    print("=" * 100)
+    print("Tempo total de solução: {:.2f} segundos".format(execution_time))
+    print("=" * 100)
 
 def main():
     """
@@ -109,7 +119,7 @@ def main():
                 arquivo = future_to_file[future]
                 try:
                     arquivo, best_solution, execute_time, gga = future.result()
-                    display_solution(arquivo, best_solution, execute_time, gga)
+                    exibir_resultado_textual(arquivo, best_solution, execute_time)
                 except ZeroDivisionError as zde:
                     print(f"{arquivo} gerou uma exceção de divisão por zero: {zde}")
                 except Exception as exc:
@@ -119,7 +129,7 @@ def main():
         for arquivo in valid_files:
             try:
                 arquivo, best_solution, execute_time, gga = process_instance(arquivo)
-                display_solution(arquivo, best_solution, execute_time, gga)
+                exibir_resultado_textual(arquivo, best_solution, execute_time)
             except Exception as exc:
                 print(f"{arquivo} gerou uma exceção: {exc}")
 

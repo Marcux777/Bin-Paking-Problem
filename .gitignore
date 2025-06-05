@@ -1,3 +1,45 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-Instances/
+*$py.class
+
+# Caches
+.cache/
+*.log
+
+# Virtual environments
+venv/
+.env/
+.envrc
+
+# VSCode settings
+.vscode/
+
+# Pytest
+.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Diretórios de build
+build/
+dist/
+*.egg-info/
+
+# Arquivos temporários
+*.swp
+*.swo
+*~
+
+# Resultados e dados gerados
+results/
+*.out
+*.tmp
+
+# Arquivos de configuração locais
+config.local.py
+
+# MacOS
+.DS_Store
+
+instances/
