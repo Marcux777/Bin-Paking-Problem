@@ -1,4 +1,10 @@
 # Relatorio
+
+## Autores
+
+- [Marcus Vinicius](https://github.com/Marcux777)
+- [Eduardo Augusto Moreira](https://github.com/EduardoAM31)
+
 - [Relatorio](/BPP/Relatorio/Relatorio.md) -> Arquivo .md, melhor para ler, visto que o relatorio foi feito usando linguagem de marcação markdown, propria pro github.
 - [Relatorio](/BPP/Relatorio/Relatorio.pdf) -> O mesmo arquivo, porém em PDF.
 
